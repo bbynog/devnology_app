@@ -15,6 +15,7 @@ module.exports = function (api) {
             components: './src/components',
             theme: './src/theme',
             navigation: './src/navigation',
+            mocks: './src/mocks',
           },
         },
       ],

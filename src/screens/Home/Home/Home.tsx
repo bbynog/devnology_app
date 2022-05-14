@@ -10,6 +10,10 @@ import {
   StackScreen,
 } from 'navigation/StackNavigator/StackNavigator.types';
 
+import { CategoriesList } from 'components';
+
+import { categoriesData } from 'mocks';
+
 interface HomeScreenProps {}
 
 export const HomeScreen = ({}: HomeScreenProps) => {
@@ -19,9 +23,17 @@ export const HomeScreen = ({}: HomeScreenProps) => {
   const navigateToProductDetails = () => {
     navigation.navigate(StackScreen.PRODUCT_DETAILS);
   };
+
   return (
     <View style={styles.container}>
-      <Text>Halu, Home Screen!</Text>
+      <View style={styles.categoriesContainer}>
+        <Text style={styles.label}>Categories</Text>
+        <CategoriesList
+          data={categoriesData}
+          contentContainerStyle={styles.cardsContainer}
+        />
+      </View>
+
       <Button title={'ProductDetails'} onPress={navigateToProductDetails} />
     </View>
   );

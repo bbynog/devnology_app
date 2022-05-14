@@ -1,9 +1,12 @@
 import React from 'react';
 
 import {
-  createStackNavigator,
-  StackNavigationOptions,
-} from '@react-navigation/stack';
+  homeNavigationOptions,
+  navigatorDefaultOptions,
+  productDetailsNavigationOptions,
+} from './StackNavigator.styles';
+
+import { createStackNavigator } from '@react-navigation/stack';
 
 import {
   HomeScreen,
@@ -17,28 +20,20 @@ import {
 
 import { StackNavigatorParamsList, StackScreen } from './StackNavigator.types';
 
-import { theme } from 'theme';
-import { Logo } from 'components';
-
 const Stack = createStackNavigator<StackNavigatorParamsList>();
-
-const { colors } = theme;
-
-const navigatorDefaultOptions: StackNavigationOptions = {
-  headerStyle: {
-    backgroundColor: colors.primary,
-  },
-  headerTintColor: colors.onPrimary,
-  headerTitle: () => <Logo />,
-};
 
 export const HomeStackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={navigatorDefaultOptions}>
-      <Stack.Screen name={StackScreen.HOME} component={HomeScreen} />
+      <Stack.Screen
+        name={StackScreen.HOME}
+        component={HomeScreen}
+        options={homeNavigationOptions}
+      />
       <Stack.Screen
         name={StackScreen.PRODUCT_DETAILS}
         component={ProductDetailsScreen}
+        options={productDetailsNavigationOptions}
       />
     </Stack.Navigator>
   );
