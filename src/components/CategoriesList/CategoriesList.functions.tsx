@@ -4,7 +4,7 @@ import { theme } from 'theme';
 
 const { colors } = theme;
 
-const navigateToCategoriesScreen = (id: number) => {
+const navigateToCategoriesScreen = (id: string) => {
   //navivigation.navigate('CategoriesScreen', {});
 };
 
@@ -15,11 +15,11 @@ export const renderSeeAllButton = () => (
     iconName={'chevron-right'}
     iconColor={colors.secondaryVariant}
     onPress={navigateToCategoriesScreen}
-    id={-1}
+    id={'-1'}
   />
 );
 
-const navigateToCategory = (id: number) => {
+const navigateToCategory = (id: string) => {
   // navigation.navigate('CategoryScreen', {
   //     id: id
   // })

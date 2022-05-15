@@ -10,9 +10,14 @@ import {
   StackScreen,
 } from 'navigation/StackNavigator/StackNavigator.types';
 
-import { CategoriesList } from 'components';
+import { CategoriesList, RoundedButton } from 'components';
 
 import { categoriesData } from 'mocks';
+
+import { Entypo } from '@expo/vector-icons';
+import { customColors } from 'theme';
+
+import { productService, categoryService } from 'services';
 
 interface HomeScreenProps {}
 
@@ -34,6 +39,13 @@ export const HomeScreen = ({}: HomeScreenProps) => {
         />
       </View>
 
+      <RoundedButton
+        label={'Share this'}
+        icon={
+          <Entypo name={'chevron-right'} color={customColors.gold} size={26} />
+        }
+        onPress={() => console.log('click')}
+      />
       <Button title={'ProductDetails'} onPress={navigateToProductDetails} />
     </View>
   );

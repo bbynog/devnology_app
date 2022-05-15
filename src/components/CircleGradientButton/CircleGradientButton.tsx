@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import { Gradient } from 'components/Gradient/Gradient';
 
@@ -15,9 +15,9 @@ interface CircleGradientButtonProps {
   iconName?: MaterialCommunityIconName;
   iconColor?: string;
   iconSize?: number;
-  onPress?: (id: number) => void;
+  onPress?: (id: string) => void;
   disabled?: boolean;
-  id: number;
+  id: string;
 }
 
 export const CircleGradientButton = ({
@@ -32,11 +32,7 @@ export const CircleGradientButton = ({
 }: CircleGradientButtonProps) => {
   return (
     <View>
-      <Pressable
-        onPress={() => onPress?.(id)}
-        android_ripple={disabled ? {} : { color: 'grey', borderless: true }}
-        disabled={disabled}
-      >
+      <TouchableOpacity onPress={() => onPress?.(id)} disabled={disabled}>
         <Gradient colors={colors} style={styles.circleContainer}>
           {iconName ? (
             <MaterialCommunityIcons
@@ -47,7 +43,7 @@ export const CircleGradientButton = ({
           ) : null}
         </Gradient>
         {label ? <Text style={styles.label}>{label}</Text> : null}
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 };
