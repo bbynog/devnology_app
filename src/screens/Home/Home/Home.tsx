@@ -1,14 +1,20 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import { BannerCarousel, CategoriesList, ProductCardList } from 'components';
+import {
+  BannerCarousel,
+  CategoriesList,
+  ProductCardList,
+  LoadingScreen,
+} from 'components';
+
+import { styles } from './Home.styles';
 
 import { useFetchCategories } from 'queries/category';
 import { useFetchProducts } from 'queries/product';
 import { useFetchBanners } from 'queries/banner';
 
-import { styles } from './Home.styles';
-import { LoadingScreen } from 'components/LoadingScreen/LoadingScreen';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface HomeScreenProps {}
 
@@ -26,7 +32,7 @@ export const HomeScreen = ({}: HomeScreenProps) => {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.categoriesContainer}>
         <Text style={styles.label}>Categories</Text>
         <CategoriesList data={categoriesData!} style={styles.cardsContainer} />
@@ -38,6 +44,6 @@ export const HomeScreen = ({}: HomeScreenProps) => {
       <View style={styles.productCardListContainer}>
         <ProductCardList data={productsData!} />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };

@@ -11,3 +11,4 @@ export { Banner } from './Banner/Banner';
 export { BannerCarousel } from './BannerCarousel/BannerCarousel';
 export { ProductCardList } from './ProductCardList/ProductCardList';
 export { default as BadgedCartIcon } from './BadgedCartIcon/BadgedCartIcon';
+export { LoadingScreen } from './LoadingScreen/LoadingScreen';

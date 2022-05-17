@@ -1,14 +1,15 @@
 import React from 'react';
-import { View } from 'react-native';
 
 import { Logo } from 'components';
 
 import { styles } from './More.styles';
 
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 export const MoreScreen = () => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Logo />
-    </View>
+    </SafeAreaView>
   );
 };

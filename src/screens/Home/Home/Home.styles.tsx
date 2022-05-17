@@ -12,9 +12,7 @@ export const styles = StyleSheet.create({
     paddingLeft: 18,
     marginBottom: 10,
   },
-  categoriesContainer: {
-    marginTop: 30,
-  },
+  categoriesContainer: {},
   latestContainer: {
     marginTop: 20,
   },

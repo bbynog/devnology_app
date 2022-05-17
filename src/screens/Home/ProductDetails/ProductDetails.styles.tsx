@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
   },
 
   headerContainer: {
-    marginTop: 20,
     marginLeft: 20,
   },
   labelText: {

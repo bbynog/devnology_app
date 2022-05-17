@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import { theme } from 'theme';
 
 const { colors } = theme;
@@ -25,6 +25,17 @@ export const styles = StyleSheet.create({
   },
   productDetailsHeaderTitleContainer: {
     marginLeft: 50,
+  },
+  badgedIconContainer: {
+    ...Platform.select({
+      ios: {
+        marginRight: 15,
+        marginTop: -4,
+      },
+      android: {
+        marginTop: 2,
+      },
+    }),
   },
   badge: {
     position: 'absolute',

@@ -18,6 +18,8 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 const { colors } = theme;
 
 export const CartScreen = () => {
@@ -29,7 +31,7 @@ export const CartScreen = () => {
     useNavigation<StackNavigationProp<CartStackNavigatorParamsList>>();
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <FlatList
         data={cartProducts}
         renderItem={renderProduct}
@@ -53,6 +55,6 @@ export const CartScreen = () => {
           />
         </>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };

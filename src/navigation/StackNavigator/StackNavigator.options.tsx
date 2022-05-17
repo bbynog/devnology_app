@@ -1,6 +1,7 @@
 import React from 'react';
+import { View } from 'react-native';
 
-import { theme } from 'theme';
+import { customColors, theme } from 'theme';
 import { Logo, BadgedCartIcon } from 'components';
 import { BottomTabNavigatorParamsList, TabScreen } from 'navigation/types';
 
@@ -9,6 +10,8 @@ import { handleBadgedCartIconPress } from './StackNavigator.functions';
 
 import { NavigationProp } from '@react-navigation/native';
 import { DefaultHeaderRight } from './StackNavigator.components';
+
+import { StackNavigationOptions } from '@react-navigation/stack';
 
 const { colors } = theme;
 
@@ -20,15 +23,18 @@ export const navigatorDefaultOptions = () => {
     headerTintColor: colors.onPrimary,
     headerTitle: () => <Logo />,
     headerRight: () => <DefaultHeaderRight />,
+    headerBackTitleVisible: false,
   };
 };
 
-export const productDetailsNavigationOptions = (
+export const productDetailsScreenOptions = (
   navigation: NavigationProp<BottomTabNavigatorParamsList, TabScreen.CART>
 ) => {
   return {
     headerRight: () => (
-      <BadgedCartIcon onPress={() => handleBadgedCartIconPress(navigation)} />
+      <View style={styles.badgedIconContainer}>
+        <BadgedCartIcon onPress={() => handleBadgedCartIconPress(navigation)} />
+      </View>
     ),
     headerRightContainerStyle: styles.headerRightContainerStyles,
     headerTitleContainerStyle: styles.productDetailsHeaderTitleContainer,

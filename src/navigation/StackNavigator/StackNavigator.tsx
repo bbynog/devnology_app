@@ -13,7 +13,7 @@ import { theme } from 'theme';
 
 import {
   navigatorDefaultOptions,
-  productDetailsNavigationOptions,
+  productDetailsScreenOptions,
 } from './StackNavigator.options';
 import {
   CartStackNavigatorProps,
@@ -52,7 +52,7 @@ export const HomeStackNavigator = ({
       <Stack.Screen
         name={StackScreen.PRODUCT_DETAILS}
         component={ProductDetailsScreen}
-        options={() => productDetailsNavigationOptions(navigation)}
+        options={() => productDetailsScreenOptions(navigation)}
       />
     </Stack.Navigator>
   );

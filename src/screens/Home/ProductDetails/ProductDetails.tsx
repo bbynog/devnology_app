@@ -20,6 +20,8 @@ import {
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { useAppDispatch } from 'hooks';
 
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 const { colors } = theme;
 
 interface ProductDetailsProps {
@@ -39,7 +41,7 @@ export const ProductDetailsScreen = ({ route }: ProductDetailsProps) => {
     useNavigation<NavigationProp<BottomTabNavigatorParamsList>>();
 
   return (
-    <View style={styles.screenContainer}>
+    <SafeAreaView style={styles.screenContainer}>
       <ScrollView>
         <View style={styles.headerContainer}>
           <Text style={styles.labelText}>{product.fullName}</Text>
@@ -70,6 +72,6 @@ export const ProductDetailsScreen = ({ route }: ProductDetailsProps) => {
           icon={IconOfAddToCartButton}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };

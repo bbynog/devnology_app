@@ -12,6 +12,8 @@ import { IconOfMyOrdersButton } from './Checkout.components';
 import { Feather } from '@expo/vector-icons';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 const { colors } = theme;
 
 interface CheckoutProps {}
@@ -20,7 +22,7 @@ export const CheckoutScreen = ({}: CheckoutProps) => {
   const navigation =
     useNavigation<NavigationProp<ProfileStackNavigatorParamsList>>();
   return (
-    <View style={styles.screenContainer}>
+    <SafeAreaView style={styles.screenContainer}>
       <View style={styles.circleCheckedContainer}>
         <Feather name={'check'} size={60} color={colors.secondaryVariant} />
       </View>
@@ -41,6 +43,6 @@ export const CheckoutScreen = ({}: CheckoutProps) => {
         icon={IconOfMyOrdersButton}
         style={styles.myOrdersButton}
       />
-    </View>
+    </SafeAreaView>
   );
 };
