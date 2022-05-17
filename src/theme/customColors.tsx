@@ -6,4 +6,5 @@ export const customColors = {
   grass: '#2FC145',
   avocado: '#B4FF4E',
   white: '#FFF',
+  black: '#000',
 };

@@ -1,6 +1,6 @@
 import { MaterialCommunityIconName } from './IconNames';
 
-export interface CircleGradientButtonTO {
+export interface CategoryTO {
   id: string;
   firstColor: string;
   secondColor: string;

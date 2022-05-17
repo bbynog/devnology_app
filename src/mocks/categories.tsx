@@ -1,8 +1,8 @@
 import { customColors } from 'theme';
-import { CircleGradientButtonTO } from 'types';
+import { CategoryTO } from 'types';
 const { salmon, gold, blue, lightBlue, grass, avocado } = customColors;
 
-export const categoriesData: CircleGradientButtonTO[] = [
+export const categoriesData: CategoryTO[] = [
   {
     id: '1',
     label: 'Apparel',

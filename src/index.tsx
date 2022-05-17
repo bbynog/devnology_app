@@ -1,20 +1,25 @@
 import { useCallback, useEffect, useState } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, LogBox } from 'react-native';
 
-import Entypo from '@expo/vector-icons/Entypo';
+import { theme } from './theme';
+import { BottomTabNavigator } from './navigation/TabNavigator/TabNavigator';
+
 import * as SplashScreen from 'expo-splash-screen';
-import * as Font from 'expo-font';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { StatusBar } from 'expo-status-bar';
 
-import { BottomTabNavigator } from './navigation/TabNavigator/TabNavigator';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 
-import { theme } from './theme';
+import { store } from './store/store';
+import { Provider as ReduxProvider } from 'react-redux';
 
 import 'react-native-gesture-handler';
+
+LogBox.ignoreLogs([
+  'ViewPropTypes will be removed from React Native. Migrate to ViewPropTypes exported from',
+]);
 
 export const Index = () => {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -32,8 +37,6 @@ export const Index = () => {
     async function prepareApp() {
       try {
         await SplashScreen.preventAutoHideAsync();
-
-        await Font.loadAsync(Entypo.font);
 
         await new Promise(resolve => setTimeout(resolve, 4000));
       } catch (e) {
@@ -58,12 +61,14 @@ export const Index = () => {
 
   return (
     <View style={styles.appContainer} onLayout={onLayoutRootView}>
-      <SafeAreaProvider>
-        <NavigationContainer theme={appTheme}>
-          <BottomTabNavigator />
-        </NavigationContainer>
-        <StatusBar style={'auto'} />
-      </SafeAreaProvider>
+      <ReduxProvider store={store}>
+        <SafeAreaProvider>
+          <NavigationContainer theme={appTheme}>
+            <BottomTabNavigator />
+          </NavigationContainer>
+          <StatusBar style={'auto'} />
+        </SafeAreaProvider>
+      </ReduxProvider>
     </View>
   );
 };

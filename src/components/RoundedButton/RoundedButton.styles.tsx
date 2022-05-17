@@ -3,13 +3,19 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     borderRadius: 50,
-    height: 50,
-    width: 150,
+    height: 45,
+    width: 160,
   },
   labelText: {
     fontWeight: '900',
+  },
+  labelContainer: {
+    marginLeft: 20,
+  },
+  iconContainer: {
+    marginLeft: 5,
   },
 });

@@ -1,22 +1,29 @@
-type HomeStackNavigatorParamsList = {
+import { Product } from 'types';
+import { BottomTabNavigatorParamsList, TabScreen } from 'navigation/types';
+
+import { NavigationProp, RouteProp } from '@react-navigation/native';
+
+export type HomeStackNavigatorParamsList = {
   HomeStack: undefined;
-  ProductDetailsStack: undefined;
+  ProductDetailsStack: {
+    product: Product;
+  };
 };
 
-type SearchStackNavigatorParamsList = {
+export type SearchStackNavigatorParamsList = {
   SearchStack: undefined;
 };
 
-type CartStackNavigatorParamsList = {
+export type CartStackNavigatorParamsList = {
   CartStack: undefined;
   CheckoutStack: undefined;
 };
 
-type ProfileStackNavigatorParamsList = {
+export type ProfileStackNavigatorParamsList = {
   ProfileStack: undefined;
 };
 
-type MoreStackNavigatorParamsList = {
+export type MoreStackNavigatorParamsList = {
   MoreStack: undefined;
 };
 
@@ -34,4 +41,14 @@ export enum StackScreen {
   CHECKOUT = 'CheckoutStack',
   PROFILE = 'ProfileStack',
   MORE = 'MoreStack',
+}
+
+export interface HomeStackNavigatorProps {
+  navigation: NavigationProp<BottomTabNavigatorParamsList, TabScreen.CART>;
+  route: RouteProp<StackNavigatorParamsList>;
+}
+
+export interface CartStackNavigatorProps {
+  navigation: NavigationProp<StackNavigatorParamsList>;
+  route: RouteProp<StackNavigatorParamsList>;
 }

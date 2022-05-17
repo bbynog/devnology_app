@@ -1,14 +1,5 @@
-import React from 'react';
 import { StyleSheet } from 'react-native';
-
-import { StackNavigationOptions } from '@react-navigation/stack';
-
 import { theme } from 'theme';
-import { Logo } from 'components';
-import {
-  DefaultHeaderRight,
-  ProductDetailsHeaderRight,
-} from './StackNavigator.components';
 
 const { colors } = theme;
 
@@ -16,6 +7,10 @@ export const styles = StyleSheet.create({
   homeHeaderRightContainer: {
     flexDirection: 'row',
     marginRight: 15,
+  },
+  headerRightContainerStyles: {
+    marginTop: 14,
+    marginRight: 16,
   },
   chatBubbleIconStyles: {
     transform: [
@@ -31,22 +26,10 @@ export const styles = StyleSheet.create({
   productDetailsHeaderTitleContainer: {
     marginLeft: 50,
   },
-});
-
-export const navigatorDefaultOptions: StackNavigationOptions = {
-  headerStyle: {
-    backgroundColor: colors.primary,
+  badge: {
+    position: 'absolute',
+    backgroundColor: colors.secondary,
+    left: 15,
+    top: 11,
   },
-  headerTintColor: colors.onPrimary,
-  headerTitle: () => <Logo />,
-  headerRight: () => DefaultHeaderRight,
-};
-
-export const productDetailsNavigationOptions: StackNavigationOptions = {
-  headerRight: () => ProductDetailsHeaderRight,
-  headerTitleContainerStyle: styles.productDetailsHeaderTitleContainer,
-};
-
-export const homeNavigationOptions: StackNavigationOptions = {
-  headerRight: () => DefaultHeaderRight,
-};
+});

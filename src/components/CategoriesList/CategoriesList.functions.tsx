@@ -1,11 +1,15 @@
-import { CircleGradientButton } from 'components/CircleGradientButton/CircleGradientButton';
 import React from 'react';
+import { ListRenderItem } from 'react-native';
+
 import { theme } from 'theme';
+import { CategoryTO } from 'types';
+
+import { CircleGradientButton } from 'components/CircleGradientButton/CircleGradientButton';
 
 const { colors } = theme;
 
 const navigateToCategoriesScreen = (id: string) => {
-  //navivigation.navigate('CategoriesScreen', {});
+  //navigation.navigate('CategoriesScreen', {});
 };
 
 export const renderSeeAllButton = () => (
@@ -25,7 +29,7 @@ const navigateToCategory = (id: string) => {
   // })
 };
 
-export const renderButtonItem = ({ item }) => {
+export const renderButtonItem: ListRenderItem<CategoryTO> = ({ item }) => {
   const { firstColor, secondColor, iconColor, iconName, label, id } = item;
   return (
     <CircleGradientButton

@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+
+import { Logo } from 'components';
+
 import { styles } from './Profile.styles';
 
 export const ProfileScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Halu Profile Screen</Text>
+      <Logo />
     </View>
   );
 };

@@ -1,4 +1,4 @@
-export type BottomTabNavigatorParamList = {
+export type BottomTabNavigatorParamsList = {
   Home: undefined;
   Search: undefined;
   Cart: undefined;

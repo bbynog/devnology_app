@@ -1,13 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
+import { MaterialCommunityIconName } from 'types';
 import { Gradient } from 'components/Gradient/Gradient';
 
 import { styles } from './CircleGradientButton.styles';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-
-import { MaterialCommunityIconName } from 'types';
 
 interface CircleGradientButtonProps {
   colors: string[];

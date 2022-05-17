@@ -1,36 +1,40 @@
 import React from 'react';
-import { View } from 'react-native';
-
-import { styles } from './StackNavigator.styles';
+import { View, TouchableOpacity } from 'react-native';
 
 import { theme } from 'theme';
 
-import {
-  Ionicons,
-  MaterialCommunityIcons,
-  AntDesign,
-} from '@expo/vector-icons';
+import { styles } from './StackNavigator.styles';
+
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 const { colors } = theme;
 
-export const DefaultHeaderRight = (
-  <View style={styles.homeHeaderRightContainer}>
-    <Ionicons
-      name={'ios-chatbubble-outline'}
-      style={styles.chatBubbleIconStyles}
-      color={colors.onPrimary}
-      size={24}
-    />
-    <MaterialCommunityIcons
-      name={'bell-outline'}
-      size={25}
-      color={colors.onPrimary}
-    />
-  </View>
-);
+interface DefaultHeaderRightProps {
+  chatOnPress?: () => void;
+  notificationOnPress?: () => void;
+}
 
-export const ProductDetailsHeaderRight = (
-  <View style={styles.productDetailsHeaderRightContainer}>
-    <AntDesign name={'shoppingcart'} color={colors.onPrimary} size={25} />
-  </View>
-);
+export const DefaultHeaderRight = ({
+  chatOnPress,
+  notificationOnPress,
+}: DefaultHeaderRightProps) => {
+  return (
+    <View style={styles.homeHeaderRightContainer}>
+      <TouchableOpacity onPress={() => chatOnPress?.()}>
+        <Ionicons
+          name={'ios-chatbubble-outline'}
+          style={styles.chatBubbleIconStyles}
+          color={colors.onPrimary}
+          size={24}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => notificationOnPress?.()}>
+        <MaterialCommunityIcons
+          name={'bell-outline'}
+          size={25}
+          color={colors.onPrimary}
+        />
+      </TouchableOpacity>
+    </View>
+  );
+};

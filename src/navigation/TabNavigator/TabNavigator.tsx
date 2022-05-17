@@ -1,5 +1,4 @@
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import {
   HomeStackNavigator,
@@ -9,85 +8,47 @@ import {
   MoreStackNavigator,
 } from '../StackNavigator/StackNavigator';
 
-import { BottomTabNavigatorParamList, TabScreen } from './TabNavigator.types';
-
+import { BottomTabNavigatorParamsList, TabScreen } from './TabNavigator.types';
 import {
-  MaterialCommunityIcons,
-  Octicons,
-  AntDesign,
-  Foundation,
-} from '@expo/vector-icons';
+  cartTabScreenOptions,
+  homeTabScreenOptions,
+  moreTabScreenOptions,
+  profileTabScreenOptions,
+  searchTabScreenOptions,
+  tabNavigatorOptions,
+} from './TabNavigator.options';
 
-import { useTheme } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
+const Tab = createBottomTabNavigator<BottomTabNavigatorParamsList>();
 
 export const BottomTabNavigator = () => {
-  const { colors } = useTheme();
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarShowLabel: true,
-        tabBarInactiveTintColor: colors.card,
-        tabBarActiveTintColor: colors.secondary,
-        tabBarStyle: {
-          backgroundColor: colors.primary,
-        },
-        tabBarLabelStyle: {
-          marginTop: -6,
-          marginBottom: 5,
-        },
-      }}
-    >
+    <Tab.Navigator screenOptions={tabNavigatorOptions}>
       <Tab.Screen
         name={TabScreen.HOME}
         component={HomeStackNavigator}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons
-              name={'home-outline'}
-              color={color}
-              size={size + 3}
-            />
-          ),
-        }}
+        options={homeTabScreenOptions}
       />
       <Tab.Screen
         name={TabScreen.SEARCH}
         component={SearchStackNavigator}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name={'search1'} color={color} size={size - 1} />
-          ),
-        }}
+        options={searchTabScreenOptions}
       />
       <Tab.Screen
         name={TabScreen.CART}
         component={CartStackNavigator}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <AntDesign name={'shoppingcart'} color={color} size={size} />
-          ),
-        }}
+        options={cartTabScreenOptions}
       />
       <Tab.Screen
         name={TabScreen.PROFILE}
         component={ProfileStackNavigator}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Octicons name={'person'} color={color} size={size} />
-          ),
-        }}
+        options={profileTabScreenOptions}
       />
       <Tab.Screen
         name={TabScreen.MORE}
         component={MoreStackNavigator}
-        options={{
-          tabBarIcon: ({ color, size }) => (
-            <Foundation name={'list'} color={color} size={size} />
-          ),
-        }}
+        options={moreTabScreenOptions}
       />
     </Tab.Navigator>
   );

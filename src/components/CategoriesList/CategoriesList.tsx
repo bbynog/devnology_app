@@ -1,22 +1,22 @@
 import React from 'react';
 import { FlatList, ViewStyle } from 'react-native';
 
+import { CategoryTO } from 'types';
+
 import {
   renderSeeAllButton,
   renderButtonItem,
 } from './CategoriesList.functions';
 
-import { CircleGradientButtonTO } from 'types';
-
 interface CategoriesListProps {
-  data: CircleGradientButtonTO[];
-  contentContainerStyle: ViewStyle;
+  data: CategoryTO[];
+  style: ViewStyle;
   customRenderItem?: () => any;
 }
 
 export const CategoriesList = ({
   data,
-  contentContainerStyle,
+  style,
   customRenderItem,
 }: CategoriesListProps) => {
   return (
@@ -24,7 +24,7 @@ export const CategoriesList = ({
       data={data}
       renderItem={customRenderItem ? customRenderItem : renderButtonItem}
       horizontal
-      contentContainerStyle={contentContainerStyle}
+      contentContainerStyle={style}
       ListFooterComponent={renderSeeAllButton}
     />
   );
