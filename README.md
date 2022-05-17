@@ -1,4 +1,4 @@
-# devnology_app
+# Devnology App
 
 Guide to run app:
 
