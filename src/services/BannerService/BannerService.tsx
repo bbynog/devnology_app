@@ -1,10 +1,11 @@
-import { bannerData } from 'mocks/banner';
+import { bannersData } from 'mocks/banner';
 
 class BannerService {
   static instance = new BannerService();
 
   async fetchBanners() {
-    return bannerData;
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    return bannersData;
   }
 }
 

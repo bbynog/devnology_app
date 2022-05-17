@@ -15,6 +15,9 @@ import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { store } from './store/store';
 import { Provider as ReduxProvider } from 'react-redux';
 
+import { QueryClientProvider } from 'react-query';
+import reactQueryService from './services/ReactQueryService/ReactQueryService';
+
 import 'react-native-gesture-handler';
 
 LogBox.ignoreLogs([
@@ -23,6 +26,7 @@ LogBox.ignoreLogs([
 
 export const Index = () => {
   const [appIsReady, setAppIsReady] = useState(false);
+  const queryClient = reactQueryService.getQueryClient();
 
   const appTheme = {
     ...DefaultTheme,
@@ -61,14 +65,16 @@ export const Index = () => {
 
   return (
     <View style={styles.appContainer} onLayout={onLayoutRootView}>
-      <ReduxProvider store={store}>
-        <SafeAreaProvider>
-          <NavigationContainer theme={appTheme}>
-            <BottomTabNavigator />
-          </NavigationContainer>
-          <StatusBar style={'auto'} />
-        </SafeAreaProvider>
-      </ReduxProvider>
+      <QueryClientProvider client={queryClient}>
+        <ReduxProvider store={store}>
+          <SafeAreaProvider>
+            <NavigationContainer theme={appTheme}>
+              <BottomTabNavigator />
+            </NavigationContainer>
+            <StatusBar style={'auto'} />
+          </SafeAreaProvider>
+        </ReduxProvider>
+      </QueryClientProvider>
     </View>
   );
 };

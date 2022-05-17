@@ -4,6 +4,7 @@ class ProductService {
   static instance = new ProductService();
 
   async fetchProducts() {
+    await new Promise(resolve => setTimeout(resolve, 2500));
     return productsData;
   }
 }

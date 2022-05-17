@@ -1,6 +1,6 @@
 import { BannerTO } from 'types';
 
-export const bannerData: BannerTO[] = [
+export const bannersData: BannerTO[] = [
   {
     id: '1',
     uri: 'https://s3-alpha-sig.figma.com/img/f130/0916/ecc52150f316242a5806a2a0305f0fef?Expires=1653868800&Signature=TuLYy2SOxYBKjyirIubnRXsRInhkuTPSnYqbQHnl-19cLtx5iKrvHHu2ShVo6iw5vLPSATFJ88uEY7olKGPGBqenaHxJh72i22~3UG0~TKQxEeykPzpQugtc18QF4qM4XdPf~M0gQDqUJx0YvvU-gAi2KdYgbteshgX3Zg4ewDuH-2PXbCNMnlF~DJE0iflO5Dxj85o13dbRvcfldm-FB6AT3UgYTlrEakTSUUakABh5Zq~0CRpUFaTj4clIIVvZrCOqYJaeoJVz0Rt3WfYOMu-xlW3Z53oh3zJbrDSRuQHShh~2mDEQJvUhDk8bjMQcHB0aBTKItZYaCfBdsJcvnw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',

@@ -7,4 +7,5 @@ export const customColors = {
   avocado: '#B4FF4E',
   white: '#FFF',
   black: '#000',
+  logoGreen: '#00FF5F',
 };

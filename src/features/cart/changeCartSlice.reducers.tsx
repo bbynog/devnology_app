@@ -48,9 +48,13 @@ export const removeProductFromCartReducer = (
 
   state.products = state.products.map(cartProduct => {
     if (cartProduct.id === action.payload.id) {
+      const quantity = cartProduct.quantity - 1;
+      const productTotal = cartProduct.price * quantity;
+
       const updatedCartProduct: CartProduct = {
         ...cartProduct,
-        quantity: cartProduct.quantity - 1,
+        quantity: quantity,
+        subTotal: productTotal,
       };
       return updatedCartProduct;
     } else {

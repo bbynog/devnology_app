@@ -19,6 +19,7 @@ module.exports = function (api) {
             store: './src/store',
             hooks: './src/hooks',
             features: './src/features',
+            queries: './src/queries',
           },
         },
       ],

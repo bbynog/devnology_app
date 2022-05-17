@@ -17,7 +17,7 @@ interface CartProductCardProps {
 export const CartProductCard = ({ product }: CartProductCardProps) => {
   const dispatch = useAppDispatch();
 
-  const { price, name, imagesUri } = product;
+  const { price, name, imagesUri, subTotal } = product;
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -29,9 +29,13 @@ export const CartProductCard = ({ product }: CartProductCardProps) => {
             {name}
           </Text>
         </View>
-        <>
+        <View style={styles.pricesContainer}>
           <Text style={styles.priceText}>{currencyFormat(price)}</Text>
-        </>
+          <Text style={styles.subTotalPriceText}>
+            {currencyFormat(subTotal)}
+          </Text>
+        </View>
+
         <View style={styles.quantityActionsContainer}>
           <TouchableOpacity
             onPress={() => dispatch(removeProductFromCart(product))}
