@@ -1,4 +1,5 @@
 # Devnology App
+* Just a demo app
 
 Guide to run app:
 
